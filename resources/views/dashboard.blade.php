@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layout')
+
+@section('content')
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -33,41 +35,4 @@
         </div>
     </div>
 
-    <!-- Dashboard Cards -->
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Manage Products Card -->
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Manage Products</h5>
-                        <p class="card-text">View, add, edit, or delete products in your inventory.</p>
-                        <a href="{{ route('products.index') }}" class="btn btn-primary">Go to Products</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Profile Card -->
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Your Profile</h5>
-                        <p class="card-text">Update your account information and preferences.</p>
-                        <a href="#" class="btn btn-secondary">Edit Profile</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Support Card -->
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Need Help?</h5>
-                        <p class="card-text">Contact our support team for assistance.</p>
-                        <a href="#" class="btn btn-success">Get Support</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@endsection
