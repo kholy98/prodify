@@ -9,6 +9,9 @@ class ProductController extends Controller
 {
     public function index()
     {
+        // $product = Product::find(34);
+        // dd($product->getFirstMediaUrl('images'));
+
         $products = Product::all();
         return view('products.index', compact('products'));
     }
@@ -24,9 +27,15 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
+            'images' => 'array',
         ]);
-
-        Product::create($request->all());
+    
+        $product = Product::create($request->only(['name', 'description', 'price']));
+    
+        if ($request->has('images')) {
+            foreach ($request->images as $imagePath) {
+                $product->addMedia(storage_path('app/public/' . $imagePath))->toMediaCollection('images');            }
+        }
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
@@ -59,5 +68,15 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
+
+    public function upload(Request $request)
+    {dd($request->all(), $request->file('file'));
+        if ($request->hasFile('file')) {dd($request->all(), $request->file('file'));
+            $path = $request->file('file')->store('temp', 'public');
+            return response()->json(['path' => $path], 200);
+        }
+
+        return response()->json(['error' => 'File upload failed'], 400);
     }
 }

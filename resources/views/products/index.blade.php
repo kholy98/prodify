@@ -15,6 +15,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Media</th>
                     <th>Price</th>
                     <th>Actions</th>
                 </tr>
@@ -25,24 +26,32 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->description }}</td>
+                    <td>
+                        @if($product->getFirstMediaUrl('images'))
+                            <img src="{{ $product->getFirstMediaUrl('images') }}" alt="{{ $product->name }}" width="50" height="50">
+                            <img src="{{ $product->getFirstMediaUrl('images') }}" alt="{{ $product->name }}" width="50" height="50">
+                            <img src="{{ $product->getFirstMediaUrl('images') }}" alt="{{ $product->name }}" width="50" height="50">
+                        @else
+                            <span>No image</span>
+                        @endif
+                    </td>
                     <td>${{ $product->price }}</td>
                     <td>
-                    <div class="d-flex align-items-center">
-    <a href="{{ route('products.show', $product) }}" class="btn btn-info btn-sm d-flex justify-content-center align-items-center me-2" data-bs-toggle="tooltip" title="View">
-        <i class="bi bi-eye"></i>
-    </a>
-    <a href="{{ route('products.edit', $product) }}" class="btn btn-warning btn-sm d-flex justify-content-center align-items-center me-2" data-bs-toggle="tooltip" title="Edit">
-        <i class="bi bi-pencil"></i>
-    </a>
-    <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline-block" data-bs-toggle="tooltip" title="Delete">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger btn-sm d-flex justify-content-center align-items-center">
-            <i class="bi bi-trash"></i>
-        </button>
-    </form>
-</div>
-
+                        <div class="d-flex align-items-center">
+                            <a href="{{ route('products.show', $product) }}" class="btn btn-info btn-sm d-flex justify-content-center align-items-center me-2" data-bs-toggle="tooltip" title="View">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="{{ route('products.edit', $product) }}" class="btn btn-warning btn-sm d-flex justify-content-center align-items-center me-2" data-bs-toggle="tooltip" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline-block" data-bs-toggle="tooltip" title="Delete">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm d-flex justify-content-center align-items-center">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
