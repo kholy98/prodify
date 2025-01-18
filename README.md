@@ -83,7 +83,6 @@ php artisan migrate
 
 # Set up FilePond for image uploads
 - Note: FilePond is used for image uploads with CDN links.
-  - Include the following in your layout file:
     ```html
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
