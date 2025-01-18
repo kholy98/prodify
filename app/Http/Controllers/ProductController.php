@@ -97,6 +97,8 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
+            'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|min:1',
         ];
     }
 
@@ -108,8 +110,16 @@ class ProductController extends Controller
             'description.required' => 'The product description is required.',
             'price.required' => 'The product price is required.',
             'price.numeric' => 'The product price must be a number.',
+
+            'image.required' => 'At least one product image is required.',
+            'image.min' => 'You must upload at least one image.',
+            'image.*.required' => 'Each image is required.',
+            'image.*.image' => 'Each file must be an image.',
+            'image.*.mimes' => 'Images must be of type: jpeg, png, jpg, or gif.',
+            'image.*.max' => 'Each image may not exceed 2MB.',
         ];
     }
+
 
     public function uploadImages(Request $request)
     {
