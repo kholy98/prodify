@@ -29,8 +29,6 @@
                     <td>
                         @if($product->getFirstMediaUrl('images'))
                             <img src="{{ $product->getFirstMediaUrl('images') }}" alt="{{ $product->name }}" width="50" height="50">
-                            <img src="{{ $product->getFirstMediaUrl('images') }}" alt="{{ $product->name }}" width="50" height="50">
-                            <img src="{{ $product->getFirstMediaUrl('images') }}" alt="{{ $product->name }}" width="50" height="50">
                         @else
                             <span>No image</span>
                         @endif

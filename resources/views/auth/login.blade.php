@@ -1,9 +1,9 @@
 <x-guest-layout>
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <!-- Logo Section -->
-        <div class="mb-8">
+        <!-- <div class="mb-8">
             <img src="{{ asset('images/ninja.jpeg') }}" alt="Logo" class="w-24 h-24 mx-auto">
-        </div>
+        </div> -->
 
         <!-- Form Container -->
         <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">

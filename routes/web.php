@@ -18,6 +18,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('products', ProductController::class);
+
+
+    Route::post('/upload', [ProductController::class, 'uploadImages']);
+    Route::post('/delete', [ProductController::class, 'deleteImages']);
 });
+
+Route::post('/upload', [ProductController::class, 'uploadImages'])->name('products.upload');
+Route::post('/delete', [ProductController::class, 'deleteImages'])->name('products.delete-image');
+
 
 require __DIR__.'/auth.php';
