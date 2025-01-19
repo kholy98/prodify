@@ -15,7 +15,7 @@ class ProductController extends Controller
         // $product = Product::find(34);
         // dd($product->getFirstMediaUrl('images'));
 
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('products.index', compact('products'));
     }
 

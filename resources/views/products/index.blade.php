@@ -85,6 +85,10 @@
                 @endforeach
             </tbody>
         </table>
+          
+          <div class="d-flex justify-content-center mt-4">
+            {{ $products->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
