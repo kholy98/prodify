@@ -70,6 +70,8 @@ npm install && npm run dev
 composer require spatie/laravel-medialibrary
 ```
 
+
+
 # Publish the configuration
 ```bash
 php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider"
